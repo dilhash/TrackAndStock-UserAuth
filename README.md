@@ -89,9 +89,13 @@ Register a new user.
 - Request Body:
     ```json
     {
-        "name": "User Name",
-        "email": "user@example.com",
-        "password": "userpassword"
+        "givenName": "John",
+        "familyName": "Doe",
+        "email": "john@example.com",
+        "mobileNumber": "1234567890",
+        "password": "password123",
+        "state": "Victoria",
+        "postcode": "3000"
     }
     ```
 
@@ -127,8 +131,12 @@ Login an existing user.
     {
         "user": {
             "id": "user-id",
-            "name": "User Name",
-            "email": "user@example.com"
+            "givenName": "John",
+            "familyName": "Doe",
+            "email": "user@example.com",
+            "mobileNumber": "1234567890",
+            "state": "Victoria",
+            "postcode": "3000"
         }
     }
     ```
@@ -145,8 +153,6 @@ Structured logs are generated using Winston and are saved to the `log/app.log` f
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
 
 ## License
-
-This project is licensed under the MIT License.

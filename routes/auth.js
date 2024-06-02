@@ -6,7 +6,7 @@ const User = require('../models/User');
 const logger = require('../logger'); // Import logger
 
 router.post('/register', async (req, res) => {
-    const { name, email, password } = req.body;
+    const { givenName, familyName, email, mobileNumber, password, state, postcode } = req.body;
     try {
         const existingUser = await User.findOne({ email: email });
         if (existingUser) {
@@ -16,9 +16,13 @@ router.post('/register', async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({
-            name,
+            givenName,
+            familyName,
             email,
-            password: hashedPassword
+            mobileNumber,
+            password: hashedPassword,
+            state,
+            postcode
         });
         await newUser.save();
         logger.info(`User registered: ${email}`);
